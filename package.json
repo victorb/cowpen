@@ -1,12 +1,12 @@
 {
   "name": "cowpen",
   "version": "0.0.1",
-  "description": "",
+  "description": "Dependency manager utilizing IPFS",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["packages", "manager", "ipfs", "npm"],
   "author": "Victor Bjelkholm <victorbjelkholm@gmail.com> (https://www.github.com/victorbjelkholm)",
   "license": "MIT"
 }
