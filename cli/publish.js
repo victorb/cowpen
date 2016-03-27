@@ -54,7 +54,8 @@ module.exports = (args) => {
   console.log('Publishing ' + unify(pkg_name, pkg_version))
   addToIPFS(process.cwd(), false,(res) => {
     const hash = findHashFromName(res, pkg_name)
-    console.log('Added to IPFS, path /ipfs/' + hash)
+    console.log('Added to IPFS, path:')
+    console.log('/ipfs/' + hash)
     // addToPublicIndex(COWPEN_PACKAGES_PATH, hash, pkg_json, () => {
     //   console.log('Added package to packages.json, adding to IPFS')
     //   addToIPFS(COWPEN_PATH, true, (res) => {
