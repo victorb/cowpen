@@ -18,6 +18,8 @@ It's mostly about being able to store and retrieve packages in a safe way that a
 * No centralization, which means no one will force you to remove a package.
 * Don't care about politics, just about publishing and reusing other peoples code.
 * Simply how to deal with NodeJS modules in a better way.
+* If you removed a module while being offline, you can easily install it again
+* If the package you're trying to install lives inside your LAN, IPFS will get it from there
 
 ## Problems cowpen doesn't care about
 
@@ -30,6 +32,7 @@ It's mostly about being able to store and retrieve packages in a safe way that a
 * NodeJS version 4 or higher
 * NPM version 3 or higher
 * IPFS version 0.3.11 or higher
+* FUSE version 27 or higher
 
 cowpen might work on earlier releases of these programs but it has not been tested so we cannot guarantee anything.
 Please let us know if it work/doesn't work for you.
@@ -91,17 +94,31 @@ is for every user to run their own ipfs daemon, with a keybase account for verif
 But right now, we don't really have a solution for this. Best would be for you to simply
 include the hash wherever you do releases currently.
 
-## Notes & Ideas
+## FAQ
 
-### Trust
+### So what is cowpen really doing?
+
+Well, at this point, not very much. IPFS and NPM is doing the heavy work, cowpen merely brings tools together and helps out a bit.
+
+In the future, the search will probably be driven by cowpen in some way. But too early to say right now.
+
+### How can I trust a package?
+
+How do you know that the package is the right one with the right version? Well, you got the hash from somewhere, so you have to trust that somewhere to not trick you. This is a harder problem to solve.
+
+### Should I include my node_modules when publishing a module?
+
+No, node_modules should not be included when publishing. But you module should be using IPFS hashes as well for it's dependencies.
+
+Reason is that NPM makes node_modules flat and if you include node_modules, you lose that.
+
+#### Notes about trust (for cowpen developers)
 
 If package A publishes version 1 as ABDEF and package B publishes version 1 as ABDEF, what happens?
 
-A package version has to published by the same peer ID as the first version was published as.
+A package version has to published and signed by the same peer ID as the first version was published as.
 
 So in this case, publishing by package B would be blocked from cowpen. But what if he simple inserts the hash manually?
-
-Rejected!
 
 ## Name
 
