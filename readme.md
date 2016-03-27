@@ -17,6 +17,8 @@ You do `ipfs add -r .` and take the hash in the end
 
 `cowpen publish ipfs-hash` which adds it to your ipfs-package.json and adds that to IPFS + IPNS
 
+`cowpen publish` while being in the directory of the package you want to publish.
+
 ### Where do I find new packages?
 
 There needs to be a central index for discovery. How to build a central index decentralized? No idea

@@ -54,17 +54,17 @@ module.exports = (args) => {
   console.log('Publishing ' + unify(pkg_name, pkg_version))
   addToIPFS(process.cwd(), false,(res) => {
     const hash = findHashFromName(res, pkg_name)
-    console.log('Added to IPFS, got hash ' + hash)
-    addToPublicIndex(COWPEN_PACKAGES_PATH, hash, pkg_json, () => {
-      console.log('Added package to packages.json, adding to IPFS')
-      addToIPFS(COWPEN_PATH, true, (res) => {
-        const index_hash = findHashFromName(res, path.basename(COWPEN_PATH))
-        console.log('Added to packages.json. Got hash ' + index_hash + '. Publishing to IPNS')
-        publishToIPFS(index_hash, (name, value) => {
-          console.log('Published!')
-          console.log('Woho! ' + name + ' now points to ' + value)
-        })
-      })
-    })
+    console.log('Added to IPFS, path /ipfs/' + hash)
+    // addToPublicIndex(COWPEN_PACKAGES_PATH, hash, pkg_json, () => {
+    //   console.log('Added package to packages.json, adding to IPFS')
+    //   addToIPFS(COWPEN_PATH, true, (res) => {
+    //     const index_hash = findHashFromName(res, path.basename(COWPEN_PATH))
+    //     console.log('Added to packages.json. Got hash ' + index_hash + '. Publishing to IPNS')
+    //     publishToIPFS(index_hash, (name, value) => {
+    //       console.log('Published!')
+    //       console.log('Woho! ' + name + ' now points to ' + value)
+    //     })
+    //   })
+    // })
   })
 }
