@@ -45,3 +45,18 @@ cowpen
 publish.sh
 cowpen init
 ```
+
+### Trust
+
+If package A publishes version 1 as ABDEF and package B publishes version 1 as ABDEF, what happens?
+
+A package version has to published by the same peer ID as the first version was published as.
+
+So in this case, publishing by package B would be blocked from cowpen. But what if he simple inserts the hash manually?
+
+Rejected!
+
+
+## Name
+
+What does Cowpen mean? Well, I don't know. The name is taken from a street in Bahamas.
